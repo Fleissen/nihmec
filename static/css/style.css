@@ -226,9 +226,19 @@ li{
     height: 15px;
     fill: #fff;
 }
-/* .ham-side-main-menu:hover svg{
-    transform: rotate(-180deg);
-} */
+
+/* Front-cover Styles */
+.nihmec-front-cover{
+    background-clip: text;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-image: url('/static/images/NiHMEC\ 2022-0859.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 50px;
+    font-weight: 900;
+    color: transparent;
+}
 
 @media (max-width: 930px) {
     .hamburger{
