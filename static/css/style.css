@@ -1,0 +1,254 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+html{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --blue: #2F58CD;
+    --green: #54B435;
+    --grey: rgb(245, 255, 223);
+    --blue-ocean: #4479e1;
+}
+.navigation-bar-container{
+    background: linear-gradient(90deg, #2F58CD 0%, rgba(84,180,53,1) 100%);
+    /* background: var(--blue-ocean); */
+    padding: 10px 10px 0 10px;
+}
+.navigation-bar-container *{
+    color: #fff;
+}
+.logo img{
+    width: 100px;
+    height: 100px;
+    margin-right: 5px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+}
+.nihmec-2023-logo-text p{
+    font-weight: 900;
+}
+.nihmec-2023-logo-text-nihmec{
+    font-size: 30px;
+}
+.nihmec-2023-logo-text-year{
+    letter-spacing: 18px;
+    font-size: 30px;
+}
+.nav-head-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: thin#fff solid;
+    padding-bottom: 5px;
+}
+.conference-full-name-venue-date{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    width: fit-content;
+    height: fit-content;
+    margin-left: 20px;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.conference-full-name-venue-date *{
+    text-transform: uppercase;
+}
+.full-meaning-nihmec{
+    font-size: 35px;
+    font-weight: 700;
+}
+.nav-menu{
+    padding: 10px 10px 0 10px;
+}
+.navigation-menu{
+    min-height: 30px;
+}
+.menu{
+    margin-left: 20px;
+    border: none;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.menu p{
+    text-transform: uppercase;
+}
+.nav-menu-list-container{
+    display: flex;
+    align-items: center;
+}
+
+.drop-down{
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+.drop-down-menu{
+    background-color: var(--blue-ocean);
+    padding: 10px;
+    display: none;
+    position: absolute;
+    margin-top: 10px;
+    z-index: 1;
+    border: none;
+    min-width: 200px;
+}
+
+.drop-down-menu li{
+    padding: 5px;
+}
+.drop-down-menu li{
+    transform: scale(1);
+    transition: all 0.5s;
+}
+.drop-down-menu li:hover{
+    transform: scale(0.9);
+    /* transform-origin: 0,0; */
+}
+
+.drop-down:hover .drop-down-menu{
+    display: block;
+}
+.dropdown-main-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown-main-menu svg{
+    fill: #fff;
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+    margin-left: 5px;
+    transition: 0.5s;
+}
+.drop-down:hover .dropdown-main-menu svg{
+    transform: rotate(-180deg);
+}
+.hamburger{
+    width: fit-content;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+.hamburger .ham{
+    border: 1.5px rgb(255, 255, 255) solid;
+    width: 30px;
+    margin-bottom: 5px;
+}
+.ham-side-nav-bar{
+    height: 100vh;
+    width: fit-content;
+    background: linear-gradient(90deg, #2F58CD 0%, rgba(84,180,53,1) 100%);
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    transition: all 0.2s;
+    transform: translateX(0);
+}
+.ham-side-nav-bar p{
+    text-transform: uppercase;
+}
+.ham-side-main-menu{
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: thin dashed white;
+}
+.ham-side-main-menu:hover{
+    background-color: var(--blue-ocean);
+}
+.ham-side-dropdown-menus{
+    transition: all 0.5s;
+    padding: 5px;
+    height: fit-content;
+}
+.ham-side-dropdown-menus li{
+    background-color: #fff;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+.ham-side-dropdown-menus li:hover{
+    background-color: var(--grey);
+}
+.ham-side-dropdown-menus a{
+    color: var(--blue);
+    display: flex;
+    align-items: center;
+}
+.ham-side-dropdown-menus svg{
+    width: 30px;
+    height: 20px;
+}
+.display-none{
+    display: none;
+    height: 0;
+    width: 0;
+    transition: all 0.5s;
+}
+.translate-left-right{
+    transform: translateX(-240px);
+}
+.ham-side-main-menu{
+    display: flex;
+    align-items: center;
+}
+.ham-side-main-menu svg{
+    width: 15px;
+    height: 15px;
+    fill: #fff;
+}
+/* .ham-side-main-menu:hover svg{
+    transform: rotate(-180deg);
+} */
+
+@media (max-width: 930px) {
+    .hamburger{
+        display: flex;
+        margin-top: 5px;
+    }
+    .nav-menu{
+        display: none;
+    }
+    
+}
+@media (max-width: 530px) {
+    .nav-head-container{
+        flex-wrap: wrap;
+    }
+    .full-meaning-nihmec{
+        font-size: 25px;
+        margin-top: 20px;
+    }
+    .date-venue{
+        font-size: 14px;
+    }
+}
