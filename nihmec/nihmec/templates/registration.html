@@ -68,6 +68,11 @@
                             <label for="country">Country</label> <br>
                             <input type="text" name="country" id="country" placeholder="Country of residence" required>
                         </div>
+                        <hr>
+                        <div class="form-field">
+                            <label for="number_of_registrants">Number of registrants</label> <br>
+                            <input type="number" name="number_of_registrants" id="number_of_registrants" placeholder="Number of attendees you are registering" required>
+                        </div>
                     </div>
                     <div class="form-card">
                         <h2>Register for:</h2>
@@ -80,9 +85,9 @@
                             <label for="workshop_conference">Workshop and Conference</label> <br>
     
                             <div class="payment-cost-container">
-                                <div class="workshop payment-cost display-cost"><p><span>₦</span>250,000</p></div>
-                                <div class="conference payment-cost display-cost"><p><span>₦</span>150,000</p></div>
-                                <div class="workshop_conference payment-cost display-cost"><p><span>₦</span>300,000</p></div>
+                                <div class="workshop payment-cost display-cost"><p>₦<span>250000</span></p></div>
+                                <div class="conference payment-cost display-cost"><p>₦<span>150000</span></p></div>
+                                <div class="workshop_conference payment-cost display-cost"><p>₦<span>300000</span></p></div>
                                 <div class="pay-btn"><button>Pay</button></div>
                             </div>
                         </div>
@@ -92,6 +97,7 @@
         </div>
         
         <script>
+            let num_of_registrants = document.getElementById('number_of_registrants').value;
             let paymentCost = document.querySelectorAll('.payment-cost');
             function displayRegistrationCost(ele) {
                 paymentCost.forEach(cost => {
@@ -101,6 +107,10 @@
                         cost.classList.add('display-cost');
                     }
                });
+            let paymentCostSpan = document.querySelectorAll('.payment-cost span');
+            paymentCostSpan.forEach(cost => {
+                cost.innerText = cost.innerText*num_of_registrants;
+            });
             }
         </script>
     </main>
