@@ -9,6 +9,8 @@ from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.models import ClusterableModel
 
 class AboutPage(Page):
+    template = 'about.html'
+    max_count = 1
     body = RichTextField()
 
     content_panels = Page.content_panels + [
@@ -16,6 +18,8 @@ class AboutPage(Page):
     ]
 
 class CallForAbstractPage(Page):
+    template = 'call_for_abstract.html'
+    max_count = 1
     body = RichTextField()
 
     content_panels = Page.content_panels + [
@@ -73,8 +77,10 @@ class Sponsors(models.Model):
     ]
 
 class SponsorshipPage(Page):
-    pass
+    template = 'sponsor.html'
 
+class SponsorDetail(Page):
+    template = 'sponsor_detail.html'
 
 @register_snippet
 class RegistrationPackage(models.Model):
@@ -123,7 +129,8 @@ class Registration(models.Model):
     ]
 
 class RegistrationPage(Page):
-    pass
+    template = 'registration.html'
+    
 
 @register_snippet
 class Speakers(models.Model):
@@ -146,7 +153,7 @@ class Speakers(models.Model):
     ]
 
 class SpeakersPage(Page):
-    pass
+    template = 'speakers.html'
 
 @register_snippet
 class TechnicalAdvisoryCommittee(models.Model):
