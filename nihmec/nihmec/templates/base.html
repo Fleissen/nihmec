@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% load wagtailcore_tags %}
 {% load static %}
+{% load static menus_tags %}
+{% get_menu "main" as menu %}
 <html lang="en">
 <head>
 
@@ -35,20 +37,21 @@
                 <div class="logo">
                     <img src="/static/images/NiHMEC.png" alt="NiHMEC">
                     <div class="nihmec-2023-logo-text">
-                        <p class="nihmec-2023-logo-text-nihmec">{{self.short_name|truncatewords:1}}</p>
-                        <p class="nihmec-2023-logo-text-year">{{self.year}}</p>
+                        <p class="nihmec-2023-logo-text-nihmec">NiHMEC</p>
+                        <p class="nihmec-2023-logo-text-year">{{home_page.year}}</p>
                     </div>
                 </div>
                 <div class="conference-full-name-venue-date">
-                    <h1 class="full-meaning-nihmec">{{self.conference_name}}</h1>
-                    <p class="date-venue"><span>{{self.start_date|date:"D d"}} - {{self.end_date}}</span><br>{{self.venue}}</p>
+                    <h1 class="full-meaning-nihmec">{{home_page.conference_name}}</h1>
+                    <p class="date-venue"><span>{{home_page.start_date|date:"D d"}} - {{home_page.end_date}}</span><br>{{home_page.venue}}</p>
                 </div>
             </div>
             <nav class="navigation-menu">
                 <div class="nav-menu">
                     <ul class="nav-menu-list-container">
-                        <li><a href="#" title="About NiHMEC" class="menu normal-menu"><p>About NiHMEC</p></a></li>
-                        
+                        {% for item in menu.menu_items.all %}
+                        <li><a href="{{item.link}}" title="{{item.title}}" {% if item.open_in_new_tab %} target="_blank" {% endif %} class="menu normal-menu"><p>{{item.title}}</p></a></li>
+                        {% endfor %}
                         <div class="drop-down menu">
                             <li class="dropdown-main-menu" title="Program">
                                 <p>Program</p>
@@ -302,7 +305,7 @@
                                 <li><a href="#">Exhibition</a></li>
                             </div>
                         </div>
-                        <li><a href="#" title="Call for Abstract" class="menu normal-menu"><p>Call for Abstract</p></a></li>
+                        <!-- <li><a href="#" title="Call for Abstract" class="menu normal-menu"><p>Call for Abstract</p></a></li> -->
                         <div class="drop-down menu">
                             <li class="dropdown-main-menu" title="NiHMEC Papers">
                                 <p>NiHMEC Papers</p>
@@ -1024,6 +1027,8 @@
                 ]
             });
         });
+
+        
     
     </script>
     {% endblock %}

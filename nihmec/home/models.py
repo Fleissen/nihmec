@@ -7,6 +7,7 @@ from wagtail.admin.panels import FieldPanel, InlinePanel, PageChooserPanel
 # from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
+from django.utils.functional import cached_property
 
 
 class HomePage(Page):
@@ -55,3 +56,14 @@ class HomePage(Page):
     class Meta:
         verbose_name = 'Conference Page'
         verbose_name_plural = 'Conference Pages'
+
+    @cached_property
+    def home_page(self):
+        return self.specific
+
+    def get_context(self, request, *args, **kwargs):
+        context = super(HomePage, self).get_context(request, *args, **kwargs)
+        context["home_page"] = self.home_page
+        return context
+
+
