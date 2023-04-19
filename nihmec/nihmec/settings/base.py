@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "menus",
     "registration",
     "sponsorship",
+    
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",

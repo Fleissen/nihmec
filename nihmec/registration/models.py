@@ -6,6 +6,8 @@ from wagtail.snippets.models import register_snippet
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.models import ClusterableModel
 from django.utils.functional import cached_property
+from wagtail.contrib.forms.panels import FormSubmissionsPanel
+from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 # Create your models here.
 
 @register_snippet
@@ -57,7 +59,7 @@ class Registration(models.Model):
 class RegistrationPage(Page):
     template = 'registration/registration.html'
 
-from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
+
 
 
 class FormField(AbstractFormField):
@@ -68,9 +70,9 @@ class RegistrationFormPage(AbstractEmailForm):
     template = 'registration/registration.html'
     intro = RichTextField(blank=True)
     thank_you_text = RichTextField(blank=True)
-    # registration_package = models.ForeignKey(RegistrationPackage, on_delete=models.SET_NULL, related_name='registration_form_package', null=True)
 
     content_panels = AbstractEmailForm.content_panels + [
+        FormSubmissionsPanel(),
         FieldPanel('intro'),
         # FieldPanel('registration_package'),
         InlinePanel('form_fields', label="Form fields"),

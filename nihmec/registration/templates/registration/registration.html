@@ -16,146 +16,143 @@
                 <a href="tel:+2349098614828">+2349098614828</a>
             </div>
             <div class="about-container">
-                <form action="" method="post">
+                <form action="{% pageurl page %}" method="post">
+                    {% csrf_token %}
                     <h2>Personal info:</h2>
                     <div class="form-card registration-form-1">
                         <div class="form-field">
                             {{form.first_name.label_tag}}
                             <h6 class="text-danger">{{ form.first_name.errors }}</h6>
-                            <input type="{{ form.first_name.widget.input_type }}"
-                            name="{{ form.first_name.name }}" id="{{ form.first_name.id_for_label }}" placeholder="{{form.first_name.help_text}}"
-                            {% if form.first_name.required %} required="required"{% endif %}>
+                            {{form.first_name}}
                         </div>
                         <div class="form-field">
                             {{form.surname.label_tag}}
                             <h6 class="text-danger">{{ form.surname.errors }}</h6>
-                            <input type="{{ form.surname.widget.input_type }}"
-                            name="{{ form.surname.name }}" id="{{ form.surname.id_for_label }}" placeholder="{{form.surname.help_text}}"
-                            {% if form.surname.required %} required="required"{% endif %}>
+                            {{form.surname}}
                         </div>
                         <div class="form-field">
                             {{form.sex.label_tag}}
                             <h6 class="text-danger">{{ form.sex.errors }}</h6>
-                            <input type="{{ form.sex.widget.input_type }}"
-                            name="{{ form.sex.name }}" id="{{ form.sex.id_for_label }}" placeholder="{{form.sex.help_text}}"
-                            {% if form.sex.required %} required="required"{% endif %}>
+                           {{form.sex}}
                         </div>
                         <div class="form-field">
-                            {{form.email.label_tag}}
-                            <h6 class="text-danger">{{ form.email.errors }}</h6>
-                            <input type="{{ form.email.widget.input_type }}"
-                            name="{{ form.email.name }}" id="{{ form.email.id_for_label }}" placeholder="{{form.email.help_text}}"
-                            {% if form.email.required %} required="required"{% endif %}>
+                            {{form.email_address.label_tag}}
+                            <h6 class="text-danger">{{ form.email_address.errors }}</h6>
+                            {{form.email_address}}
                         </div>
                         <div class="form-field">
                             {{form.phone.label_tag}}
                             <h6 class="text-danger">{{ form.phone.errors }}</h6>
-                            <input type="{{ form.phone.widget.input_type }}"
-                            name="{{ form.phone.name }}" id="{{ form.phone.id_for_label }}" placeholder="{{form.phone.help_text}}"
-                            {% if form.phone.required %} required="required"{% endif %}>
+                            {{form.phone}}
                         </div>
                         <div class="form-field">
                             {{form.company.label_tag}}
                             <h6 class="text-danger">{{ form.company.errors }}</h6>
-                            <input type="{{ form.company.widget.input_type }}"
-                            name="{{ form.company.name }}" id="{{ form.company.id_for_label }}" placeholder="{{form.company.help_text}}"
-                            {% if form.company.required %} required="required"{% endif %}>
+                            {{form.company}}
                         </div>
                         <div class="form-field">
                             {{form.position.label_tag}}
                             <h6 class="text-danger">{{ form.position.errors }}</h6>
-                            <input type="{{ form.position.widget.input_type }}"
-                            name="{{ form.position.name }}" id="{{ form.position.id_for_label }}" placeholder="{{form.position.help_text}}"
-                            {% if form.position.required %} required="required"{% endif %}>
+                            {{form.position}}
                         </div>
                         <div class="form-field">
                             {{form.state.label_tag}}
                             <h6 class="text-danger">{{ form.state.errors }}</h6>
-                            <input type="{{ form.state.widget.input_type }}"
-                            name="{{ form.state.name }}" id="{{ form.state.id_for_label }}" placeholder="{{form.state.help_text}}"
-                            {% if form.state.required %} required="required"{% endif %}>
+                            {{form.state}}
                         </div>
                         <div class="form-field">
                             {{form.city.label_tag}}
                             <h6 class="text-danger">{{ form.city.errors }}</h6>
-                            <input type="{{ form.city.widget.input_type }}"
-                            name="{{ form.city.name }}" id="{{ form.city.id_for_label }}" placeholder="{{form.city.help_text}}"
-                            {% if form.city.required %} required="required"{% endif %}>
+                            {{form.city}}
                         </div>
                         <div class="form-field">
                             {{form.country.label_tag}}
                             <h6 class="text-danger">{{ form.country.errors }}</h6>
-                            <input type="{{ form.country.widget.input_type }}"
-                            name="{{ form.country.name }}" id="{{ form.country.id_for_label }}" placeholder="{{form.country.help_text}}"
-                            {% if form.country.required %} required="required"{% endif %}>
+                            {{form.country}}
                         </div>
                         <hr>
-                        <div class="form-field">
-                            {{form.number_of_registrants.label_tag}}
-                            <h6 class="text-danger">{{ form.number_of_registrants.errors }}</h6>
-                            <input type="{{ form.number_of_registrants.widget.input_type }}" class="qty"
-                            name="{{ form.number_of_registrants.name }}" id="{{ form.number_of_registrants.id_for_label }}" placeholder="{{form.number_of_registrants.help_text}}"
-                            {% if form.number_of_registrants.required %} required="required"{% endif %} value="1">
-                        </div>
                     </div>
                     <div class="form-card">
                         <h2>Register for:</h2>
                         <div class="form-field">
                             
-                            <input type="radio" name="registration_type" id="id_workshop" {% if form.workshop.required %} required="required"{% endif %} value="Workshop only" onclick="displayRegistrationCost(this)">
-                            <label for="id_workshop">Workshop only</label> <br>
+                            {{form.workshop}}
+                            
 
-                            <input type="radio"
-                            name="registration_type" id="id_conference"
-                            {% if form.conference.required %} required="required"{% endif %} value="Conference only" onclick="displayRegistrationCost(this)">
-                            <label for="id_conference">Conference only</label> <br>
+                        </div>
+                    </div>
+                    <div class="form-card">
+                        <div class="form-field">
+                            {{form.number_of_registrants.label_tag}}
+                            <h6 class="text-danger">{{ form.number_of_registrants.errors }}</h6>
+                            {{form.number_of_registrants}}
+                        </div>
 
-                            <input type="radio"
-                            name="registration_type" id="{{ form.workshop_and_conference.id_for_label }}"
-                            {% if form.workshop_and_conference.required %} required="required"{% endif %} value="Workshop and Conference" onclick="displayRegistrationCost(this)">
-                            {{form.workshop_and_conference.label_tag}} <br>
-    
-                            <div class="payment-cost-container">
-                                <input class="id_workshop payment-cost display-cost" type="{{ form.workshop_cost.widget.input_type }}"
-                                id="{{ form.workshop_cost.id_for_label }}"
-                                {% if form.workshop_cost.required %} required="required"{% endif %} value="150000" disabled>
+                        <div class="payment-cost-container">
+                            <label for="id_workshop_cost"></label>
+                            {{form.workshop_cost}}
 
-                                <input class="id_conference payment-cost display-cost" type="{{ form.conference_cost.widget.input_type }}"
-                                id="{{ form.conference_cost.id_for_label }}"
-                                {% if form.conference_cost.required %} required="required"{% endif %} value="250000" disabled>
+                            <label for="id_conference_cost"></label>
+                            {{form.conference_cost}}
 
-                                <input class="id_workshop_and_conference payment-cost display-cost" type="{{ form.conference_and_workshop_cost.widget.input_type }}"
-                                id="{{ form.conference_and_workshop_cost.id_for_label }}"
-                                {% if form.conference_and_workshop_cost.required %} required="required"{% endif %} value="300000" disabled>
-                                <div class="pay-btn"><button>Pay</button></div>
-                                <div class="output-cost"></div>
-                            </div>
+                            <label for="id_conference_and_workshop_cost"></label>
+                            {{form.conference_and_workshop_cost}}
+                            <input class="pay-btn" type="submit" value="Pay">
+                            
+                            <div class="output-cost"></div>
+                        </div>
 
-                            <script>
-                                let num_of_registrants = document.getElementById('{{ form.number_of_registrants.id_for_label }}').value;
-                                let paymentCost = document.querySelectorAll('.payment-cost');
-                                let registration_form = document.querySelector('form');
-                                function displayRegistrationCost(ele) {
+                        <script>
+                            let num_of_registrants = document.getElementById('{{ form.number_of_registrants.id_for_label }}').value;
+                            let workshopCost = document.getElementById('id_workshop_cost').value;
+                            let conferenceCost= document.getElementById('id_conference_cost').value;
+                            let WorkConfCost = document.getElementById('id_conference_and_workshop_cost').value;
+                            
+                            let registration_form = document.querySelector('form');
+                            let registrationPackage = document.querySelectorAll("input[type='radio']");
+                            document.querySelector("input[name='number_of_registrants']").setAttribute('class', 'qty');
+                            document.querySelector("input[name='workshop_cost']").setAttribute('class', 'id_workshop_0 payment-cost');
+                            document.querySelector("input[name='conference_cost']").setAttribute('class', 'id_workshop_1 payment-cost');
+                            document.querySelector("input[name='conference_and_workshop_cost']").setAttribute('class', 'id_workshop_2 payment-cost');
+                            
+                            document.querySelector("input[name='workshop_cost']").readonly = true;
+                            document.querySelector("input[name='conference_cost']").readonly = true;
+                            document.querySelector("input[name='conference_and_workshop_cost']").readonly = true;
+                            registrationPackage.forEach(package => {
+                                // package.setAttribute('name', 'registration_type');
+                                package.setAttribute('class', 'registration-package');
+                                package.addEventListener('click', ()=>{
+                                    let paymentCost = document.querySelectorAll('.payment-cost');
                                     paymentCost.forEach(cost => {
-                                        if (ele.id == cost.classList[0]) {
-                                            registration_form.setAttribute("oninput", `x.value=parseInt({{ form.number_of_registrants.id_for_label }}.value)+parseInt(${ele.id}.value)`);
-                                            cost.classList.toggle('display-cost');
-                                            cost.value = num_of_registrants*cost.value;
-                                            document.querySelector('.output-cost').innerHTML = `=<output name="x" for="{{ form.number_of_registrants.id_for_label }} ${ele.id}"></output>`
+                                        if (package.id == cost.classList[0]) {
+                                            console.log(cost.value);
+                                            cost.classList.remove('display-cost');
+                                            function calcCost() {
+                                                cost_ = document.querySelector(`.${package.id}`);
+                                                if (cost_ == cost) {
+                                                    console.log(cost_);
+                                                    let num_of_registrants = document.getElementById('{{ form.number_of_registrants.id_for_label }}').value;
+                                                    let total = num_of_registrants*cost_.value;
+                                                    document.querySelector('.output-cost').innerText = total;
+                                                }  
+                                            };
+                                            
+                                            $(function()
+                                                {
+                                                    $(".qty").on("change keyup", calcCost);
+                                                    $(".registration-package").on("change keyup", calcCost);
+                                            });
                                             
                                         }else{
-                                            cost.classList.add('display-cost');
-                                            
-                                        }
-                                   });
-                                
-                                }
-                                $(function()
-                                {
-                                    $(".qty").on("change keyup", displayRegistrationCost);
+                                        cost.classList.add('display-cost');
+                                        
+                                    }
+                               });
                                 })
-                            </script>
-                        </div>
+                            });
+                            
+                        </script>
+
                     </div>
                 </form>
             </div>

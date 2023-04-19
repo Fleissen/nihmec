@@ -798,8 +798,6 @@ li{
   }
   .pay-btn{
     margin-left: 10px;
-  }
-  .pay-btn button{
     border: none;
     color: #fff;
     background-color: var(--green);
@@ -807,6 +805,7 @@ li{
     border-radius: 5px;
     cursor: pointer;
   }
+
   .contact-to-register{
     float:left;
     max-width: 300px;
