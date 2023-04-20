@@ -509,7 +509,7 @@ li{
 
   
   .meet-our-speakers .wrapper {
-      display: block;
+      display: flex;
       width: 100%;
   }
   
@@ -526,16 +526,16 @@ li{
       position: relative;
       padding: 0 !important;
       overflow: hidden;
-      transition-property:top, left, right, bottom;
+      /* transition-property:top, left, right, bottom; */
       background: transparent;
       box-shadow: none;
   /*     transition: .4s; */
   }
   .meet-our-speakers .col-active {
     width: 33.33% !important;
-    transform: translate(-50%, -50%)!important;
+    /* transform: translate(-50%, -50%)!important;
     top: 50%!important;
-    left: 50%!important;
+    left: 50%!important; */
     bottom: unset!important;
     background: rgba(255, 255, 255, 0.375);
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
@@ -570,7 +570,7 @@ li{
       border-bottom: 1px solid rgba(255, 255, 255, 0.432);
   }
   
-  .meet-our-speakers .image-cover{
+  /* .meet-our-speakers .image-cover{
       position: absolute;
       width:100%;
       float: left;
@@ -579,7 +579,7 @@ li{
       border-radius: 100%;
       z-index: 1;
       cursor: pointer;
-  }
+  } */
   .meet-our-speakers .col-active .image-cover{
       position: relative;
       width:30%;
@@ -592,29 +592,21 @@ li{
   }
   
   
-  .meet-our-speakers .author-info{
+  /* .meet-our-speakers .author-info{
       width:70% ;
       float: left;
       padding: 10px;
       overflow: hidden;
       visibility: hidden;
-  }
+  } */
   .meet-our-speakers .col-active .author-info{
       visibility: visible;
+      padding: 10px;
+      width:70% ;
+      float: left;
+      overflow: hidden;
   }
   
-  .meet-our-speakers .author-info .author-name, .author-info .person-title{
-      transform: translate(-100%, 0%);
-      transition: .4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  }
-  
-  .meet-our-speakers .show .author-info .author-name{
-      transform: translate(0%, 0%);
-  }
-  .meet-our-speakers .show .author-info .person-title{
-      transform: translate(0%, 0%);
-      transition-delay: .2s;
-  }
   
   .meet-our-speakers .person-name{
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -640,7 +632,6 @@ li{
       padding: 20px 15px;
       text-align: center;
       overflow: hidden;
-      visibility: hidden;
       z-index: 0;
   }
   .meet-our-speakers .col-active .quote-wrapper{
@@ -670,7 +661,7 @@ li{
       overflow: hidden;
       background-color: rgb(255, 255, 255);
       z-index: 1;
-      transition: 0.4s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+      /* transition: 0.4s cubic-bezier(0.55, 0.06, 0.68, 0.19); */
   }
   
   .meet-our-speakers .quote-wrapper .quote-symbol:first-child {
@@ -706,7 +697,7 @@ li{
   
   }
   
-  .meet-our-speakers .left-arrow {
+  /* .meet-our-speakers .left-arrow {
       float: left;
       left: 30px;
       clip-path: polygon(40% 0%, 40% 20%, 100% 33%, 100% 67%, 40% 80%, 40% 100%, 0% 50%);
@@ -717,11 +708,11 @@ li{
       right: 30px;
       clip-path: polygon(0 33%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0 67%);
   
-  }
+  } */
   
   /* STYLING ABOUT */
   .about{
-    background-color: #f0efe7;
+    /* background-color: #f0efe7; */
     /* display: flex; */
     /* align-items: center; */
     /* justify-content: center; */
@@ -739,7 +730,7 @@ li{
   .register-container{
     display: flex;
     align-items: first baseline;
-
+    width: 100%;
   }
   .about-container{
     border-radius: 5px;
@@ -748,7 +739,7 @@ li{
     padding: 22px;
     margin-top: 50px;
     margin-bottom: 50px;
-    width: 90%;
+    width: 100%;
     min-width: 300px;
     max-width: 902px;
     /* float: right; */
@@ -784,6 +775,7 @@ li{
   }
   .form-card{
     margin-bottom: 20px;
+    width: 100%;
   }
   .display-cost{
     display: none;
@@ -795,6 +787,7 @@ li{
     width: 90%;
     min-width: 250px;
     border-radius: 5px;
+    margin-right: 20px;
   }
   .pay-btn{
     margin-left: 10px;
@@ -887,10 +880,44 @@ li{
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
-    width: fit-content;
+    width: 200px;
     margin-top: 20px;
     max-width: 90%;
     cursor: pointer;
+  }
+  .form-card-wordwrap{
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .thank-you-card{
+    border-radius: 5px;
+    width: 70%;
+    min-width: 300px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .thank-you-card svg{
+    fill: var(--green);
+  }
+
+  textarea {
+    /* demo related */
+    width: 99%;
+    margin-bottom: 1em;
+    display: block;
+    
+    /* rows related */
+    font-size: inherit;
+    line-height: inherit;
+    padding: 3px;
+  }
+  .abstract-form{
+    margin-top: 40px;
   }
   @media (min-width:640px){
       .col-active {
@@ -900,6 +927,7 @@ li{
           top: 50%!important;
           left: 50%!important;
       }
+      
   }
   
   @media (min-width:840px){
@@ -959,6 +987,9 @@ li{
   
       .quote-wrapper .quote-symbol{
           font-size:34vh;
+      }
+      .form-card-wordwrap{
+        flex-wrap: wrap;
       }
   
   }

@@ -11,7 +11,7 @@ from django.utils.functional import cached_property
 
 
 class HomePage(Page):
-
+    parent_page_types = ['wagtailcore.Page']
     template = 'home/home_page.html'
     max_count = 1
 

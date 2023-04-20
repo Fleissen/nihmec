@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'base.html' %}
-
 {% load wagtailcore_tags %}
-
 {% load static %}
 
 {% block content %}
@@ -44,7 +42,9 @@
                     <tr>
                         <td></td>
                         {% for package in page.get_children %}
+                        {% with package=package.specific %}
                             <td class="sponsorship-select"><a href="{% pageurl package %}">Select</a></td>
+                        {% endwith %}
                         {% endfor %}
                     </tr>
                 </tfoot>
