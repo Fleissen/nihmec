@@ -98,6 +98,25 @@ class Speakers(models.Model):
         verbose_name = 'Speaker'
         verbose_name_plural = 'Speakers'
 
+
+@register_snippet
+class Attendees(models.Model):
+    company_name = models.CharField(max_length = 500, null=True, blank=True)
+    company_logo = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+', null=True
+    )
+    company_url = models.URLField(max_length=500, null=True)
+
+    panels = [
+        FieldPanel('company_name'),
+        FieldPanel('company_logo'),
+        FieldPanel('company_url'),
+    ]
+
+    class Meta:
+        verbose_name = 'Attendees'
+        verbose_name_plural = 'Attendees'
+
 @register_snippet
 class TechnicalAdvisoryCommittee(models.Model):
     first_name = models.CharField(max_length = 500, null=True, blank=True)

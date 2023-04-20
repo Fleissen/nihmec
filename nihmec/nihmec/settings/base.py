@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "menus",
     "registration",
     "sponsorship",
+    "exhibition",
     
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -158,6 +159,7 @@ MEDIA_URL = "/media/"
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "nihmec"
+WAGTAILIMAGES_MAX_UPLOAD_SIZE = 25 * 1024 * 1024  # i.e. 25MB
 
 # Search
 # https://docs.wagtail.org/en/stable/topics/search/backends.html

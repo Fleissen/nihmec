@@ -2,6 +2,7 @@
 {% extends 'base.html' %}
 {% load wagtailcore_tags %}
 {% load static %}
+{% load wagtailimages_tags %}
 
 {% block content %}
 
@@ -235,31 +236,14 @@
 
         </div>
         <div class="carousel">
+            {% for committee in committees %}
             <div class="carousel-card">
-              <img src="{% static 'images/NiHMEC 2022-0508.jpg' %}">
-              <h4>Osten Olorunsola <span>(Chairman)</span></h4>
-              <p>Chairman, Energy Institute, Nigeria</p>
-              </div>
-            <div class="carousel-card">
-              <img src="{% static 'images/NiHMEC 2022-0885.jpg' %}">
-              <h4>Sunday Kanshio, PhD <span>(Coordinator)</span></h4>
-              <p>Managing Partner, Fleissen & Company</p>
+                {% image committee.photo max-300x300 %}
+              <h4>{{committee.first_name}} {{committee.surname}} <span>({{committee.position_in_conference}})</span></h4>
+              <p>{{committee.position_in_company}}, {{committee.company}}</p>
             </div>
-            <div class="carousel-card">
-              <img src="{% static 'images/NiHMEC 2022-0508.jpg' %}">
-              <h4>Dr Femi Olarewaju <span>(Communication Strategist)</span></h4>
-              <p>Chief Strategist, Westpaq Engineering</p>
-            </div>
-            <div class="carousel-card">
-              <img src="{% static 'images/NiHMEC 2022-0499.jpg' %}">
-              <h4>Andy Orji <span>(Member)</span></h4>
-              <p>Measurement Optimisation Engineer, Chevron.</p>
-            </div>
-            <div class="carousel-card">
-                <img src="{% static 'images/NiHMEC 2022-0515.jpg' %}">
-                <h4>Godfrey Omokaro <span>(Member)</span></h4>
-                <p>Head Metering, SPDC.</p>
-            </div>
+            {% endfor %}
+            
           </div>
     </div>
    
@@ -351,31 +335,26 @@
 
         </div>
         <!-- <div class="bg"></div> -->
-        <div class="wrapper" id="wrapper">
-            <div class="quote-row">
-                <div class="quote-column col-active show">
-                    <div class="col-inner">
-                        <div class="author-meta">
-                            <div class="box-image-inner image-cover">
-                                <img src="/static/images/NiHMEC 2022-0495.jpg">
-                            </div>
-                            <div class="author-info">
-                                <div class="author-name"> <p class="person-name">Tom hawck</p></div>
-                                <div class="author-status"> <p class="person-title"> IT Solution Company </p></div>
-                            </div>
-                        </div>
-                        <div class="quote-wrapper">
-                            <div class="quote-symbol">❛</div>
-                            <div class="box-text-inner">
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                            </div>
-                            <div class="quote-symbol">❜</div>
-                        </div>
+        <div class="speaker-wrapper" id="speaker-wrapper">
+            {% for speaker in speakers %}
+            <div class="speaker-card">
+                <div class="speaker-image-name-container">
+                    <div class="speaker-image">
+                        {% image speaker.photo max-300x300 %}
+                    </div>
+                    <div class="speaker-name-title">
+                        <div class="author-name"> <p class="person-name">{{speaker.first_name}} {{speaker.surname}}</p></div>
+                        <div class="author-status"> <p class="person-title">{{speaker.position}} @ {{speaker.company}} </p></div>
                     </div>
                 </div>
-                
+                <div class="speaker-about">
+                    <p>{{speaker.short_introduction|richtext}}</p>
+                </div>
             </div>
+            {% endfor %}
+            
         </div>
+
     </div>
 </main>
 

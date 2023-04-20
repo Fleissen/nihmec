@@ -8,6 +8,7 @@ from wagtail.admin.panels import FieldPanel, InlinePanel, PageChooserPanel
 from wagtail.snippets.models import register_snippet
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from django.utils.functional import cached_property
+from website.models import Speakers, TechnicalAdvisoryCommittee, Attendees
 
 
 class HomePage(Page):
@@ -63,7 +64,15 @@ class HomePage(Page):
 
     def get_context(self, request, *args, **kwargs):
         context = super(HomePage, self).get_context(request, *args, **kwargs)
+
+        speakers = Speakers.objects.all()
+        committees = TechnicalAdvisoryCommittee.objects.all()
+        attendees = Attendees.objects.all()
+
         context["home_page"] = self.home_page
+        context["speakers"] = speakers
+        context["committees"] = committees
+        context["attendees"] = attendees
         return context
 
 
