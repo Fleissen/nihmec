@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "registration",
     "sponsorship",
     "exhibition",
+    "gallery",
     
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
