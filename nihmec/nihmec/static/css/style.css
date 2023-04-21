@@ -876,6 +876,13 @@ textarea {
     fill: #fff;
 }
 
+/* STYLING GALLERY */
+.gallery-container{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
 @media (max-width: 930px) {
     .hamburger{
         display: flex;
